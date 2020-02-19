@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://sagarverma.github.io/dynamics.html -->
+<html lang="en-gb" dir="ltr" class="com_content view-article layout-blog itemid-118 j39 mm-hover  no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="keywords" content="computer vision, research">
+	<meta name="author" content="Ram Sharma">
+	<meta name="description" content="Centre for Visual Information Technology (CVIT) is a research centre at International Institute of Information Technology, Hyderabad.">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>Modeling Electrical Motor Dynamics using Encoder-Decoder with Recurrent Skip Connection</title>
+	<link href="./stylesandscripts/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="./stylesandscripts/system.css" rel="stylesheet" type="text/css">
+	<link href="./stylesandscripts/template.css" rel="stylesheet" type="text/css">
+	<link href="./stylesandscripts/megamenu.css" rel="stylesheet" type="text/css">
+	<link href="./stylesandscripts/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./stylesandscripts/magazine.css" rel="stylesheet" type="text/css">
+	<script src="./stylesandscripts/jquery.min.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/jquery-noconflict.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/caption.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/bootstrap.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/jquery.tap.min.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/script.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/menu.js" type="text/javascript"></script>
+	<script src="./stylesandscripts/nav-collapse.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+		jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+	</script>
+
+	<style type="text/css">
+
+		.card { display: inline-block; vertical-align: top; width: 500px; height: 150px; position: relative; overflow: hidden; margin: 20px; background: #FFF; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); color: #272727; border-radius: 2px;}
+
+
+		.card .image { position: relative; height: 150px; width: 150px; float: left;}
+
+
+		.card .image img { border-radius: 2px 0 0 2px; position: relative; left: 0; right: 0; top: 0; bottom: 0; height: 100%; -moz-transition:-moz-transform 0.5s ease-in; -webkit-transition:-webkit-transform 0.5s ease-in; -o-transition:-o-transform 0.5s ease-in; transition: 0.5s ease-in;}
+
+		.card .image img:hover{ -moz-transform:scale(.95); -webkit-transform:scale(.95); -o-transform:scale(.95); transform:scale(.95);}/* .card img:hover{ -webkit-transform: rotateZ(-10deg); -ms-transform: rotateZ(-10deg); transform: rotateZ(-10deg); transition: 1s ease;}*/
+
+		.card .title { padding-top: 10px !important; line-height: 24px; font-size: 18px; font-weight: 600; position: relative; top: 10px; padding: 20px; font-variant: small-caps;}
+
+
+		.card .content { font-size: 13; width: 350px; float: left; padding: 20px; font-weight: 300; border-radius: 0 2px 2px 0;}.card p { margin: 0;}
+
+
+		.card a { font-size: 13px; color: #29739D; margin-right: 20px; -webkit-transition: color 0.3s ease; transition: color 0.3s ease; text-transform: uppercase; text-decoration: none;}
+
+		.card .card-footer { text-align: right; width: 350px; position: absolute; bottom: 0; left: 150px; border-top: 1px solid rgba(160, 160, 160, 0.2); margin: 0; padding-left: 20px; padding-right: 10px;}
+
+		.card .card-footer a { color: #ffab40; margin-right: 20px; -webkit-transition: color 0.3s ease; transition: color 0.3s ease; text-transform: uppercase; text-decoration: none;}
+
+		.recents { font-size: 16px; padding: 7px 15px; background-color: #eeeeee;}
+
+		.recent-updates-module { height: 400px; overflow: auto; text-align: justify;}</style>
+
+
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+
+
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+
+	</script>
+
+	
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/templates/purity_iii/css/ie8.css" type="text/css" />
+<![endif]-->	</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="t3-wrapper magazine"> <!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+
+
+
+
+
+
+
+<div id="t3-mainbody" class="container t3-mainbody">
+	<div class="row">
+
+		<!-- MAIN CONTENT -->
+		<div id="t3-content" class="t3-content col-xs-12">
+
+
+<div class="item-page clearfix">
+
+
+<!-- Article -->
+<article itemscope="" itemtype="http://schema.org/Article">
+	<meta itemprop="inLanguage" content="en-GB">
+	<meta itemprop="url" content="/research/projects/cvit-projects/badminton-analytics">
+
+
+  <!-- Aside -->
+    <!-- //Aside -->
+
+
+
+
+
+
+
+
+	<section class="article-content clearfix" itemprop="articleBody">
+		<h3 style="text-align: center; color:#000000"><strong><u>Generating Personalized Summaries of Day Long Egocentric Videos</u></strong></h3><br>
+<hr>
+<h3 style="color: #0e083b"><b>Abstract</b></h3>
+<div style="text-align: justify;color: #083e40">The popularity of egocentric cameras and their always-on nature has lead to the abundance of day-long first-person videos. The presence of extreme shake and highly redundant nature of these videos make them difficult to watch from beginning to end and requiring summarization tools for their efficient consumption. However, traditional summarization techniques developed for static surveillance videos, or highly curated sports videos and movies are, either, not suitable or simply do not scale for such hours long videos in the wild. On the other hand, specialized summarization techniques developed for egocentric videos limit their focus to important objects and people. In this paper, we present a novel unsupervised reinforcement learning framework to summarize egocentric videos both in terms of length as well as the content. The proposed framework facilitates to incorporate various types of prior preferences such as faces, places, or scene diversity as well as interactive user choice in terms of including or excluding the particular type of content. Our approach can also be adapted to generate summaries of various lengths making it possible to view even 1-minute summaries of one’s entire day. When using the facial saliency-based reward, we show that our approach generates summaries focusing on social interactions, similar to the current state-of-the-art (SOTA). Quantitative comparison on the benchmark Disney dataset shows that our method achieves significant improvement in Relaxed F-Score (RFS) ( 29.60 compared to 19.21 from SOTA) and BLEU score ( 11.55 vs. 10.64 from SOTA). Finally, we show that our technique can be applied for summarizing traditional, short, hand-held videos as well, where we improve the SOTA F-score on benchmark SumMe and TVSum datasets from 41.4 to 46.40 and 57.6 to 58.3 respectively.</div>
+<p>&nbsp;</p>
+
+<br>
+<h3 style="color: #0e083b"><b>Architecture</b></h3><br>
+<div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black; width: 100%" src="Architecture.png" alt="IMG"><center><small></small></center></div>
+<br><br>
+
+<h3 style="color: #0e083b"><b>Visualization</b></h3><br>
+<div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="visualization.png" alt="IMG"><center><small></small></center></div>
+<hr>
+<br><br>
+<h3 style="color: #0e083b"><b>Related Publications</b></h3>
+<ul>
+<li>Anuj Rathore*, Pravin Nagar* , Chetan Arora, and C. V. Jawahar. "Generating 1 Minute Summaries of Day Long Egocentric Videos" ACMMM 2019.</li>
+</ul>
+<hr>
+
+
+<div>
+<h3 style="color: #0e083b"><b>Code</b></h3>
+<p>The software implementation of this project can be found on the <a href="#">Here</a></p>
+</div>
+<hr>
+
+<div>
+<h3 style="color: #0e083b"><b>Dataset</b></h3>
+<div class="row">
+	
+	<div class="col-xs-6">
+		<li style="padding-left: 50%"><a href="#">Disney</a></p></li>
+		<li style="padding-left: 50%"><a href="#">UTE</a></p></li>
+		<li style="padding-left: 50%"><a href="#">Huji</a></p></li>
+
+	</div>
+
+	<div class="col-xs-6">
+		
+		<li><a href="#">Annotations</a></p></li>
+		<li><a href="#">Annotations</a></p></li>
+
+	</div>
+
+</div>
+</div>
+<hr>
+	</section>
+
+  <!-- footer -->
+    <!-- //footer -->
+
+
+
+	</article>
+<!-- //Article -->
+
+
+</div>
+
+
+		</div>
+		<!-- //MAIN CONTENT -->
+
+	</div>
+</div>
+
+
+</div>
+
+
+
+
+</body></html>
