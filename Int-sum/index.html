@@ -145,20 +145,20 @@
 <h3 style="color: #0e083b"><b>Abstract</b></h3>
 <div style="text-align: justify;color: #083e40">The popularity of egocentric cameras and their always-on nature has lead to the abundance of day-long first-person videos. The presence of extreme shake and highly redundant nature of these videos make them difficult to watch from beginning to end and requiring summarization tools for their efficient consumption. However, traditional summarization techniques developed for static surveillance videos, or highly curated sports videos and movies are, either, not suitable or simply do not scale for such hours long videos in the wild. On the other hand, specialized summarization techniques developed for egocentric videos limit their focus to important objects and people. In this paper, we present a novel unsupervised reinforcement learning framework to summarize egocentric videos both in terms of length as well as the content. The proposed framework facilitates to incorporate various types of prior preferences such as faces, places, or scene diversity as well as interactive user choice in terms of including or excluding the particular type of content. Our approach can also be adapted to generate summaries of various lengths making it possible to view even 1-minute summaries of one’s entire day. When using the facial saliency-based reward, we show that our approach generates summaries focusing on social interactions, similar to the current state-of-the-art (SOTA). Quantitative comparison on the benchmark Disney dataset shows that our method achieves significant improvement in Relaxed F-Score (RFS) ( 29.60 compared to 19.21 from SOTA) and BLEU score ( 11.55 vs. 10.64 from SOTA). Finally, we show that our technique can be applied for summarizing traditional, short, hand-held videos as well, where we improve the SOTA F-score on benchmark SumMe and TVSum datasets from 41.4 to 46.40 and 57.6 to 58.3 respectively.</div>
 <p>&nbsp;</p>
-<br>
+
 <h3 style="color: #0e083b"><b>Architecture</b></h3><br>
 <div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black; width: 100%" src="Architecture.png" alt="IMG"><center><small></small></center></div>
 <br><br>
 <h3 style="color: #0e083b"><b>Visualization</b></h3><br>
 <div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="visualization.png" alt="IMG"><center><small></small></center></div>
 <hr>
-<br><br>
+<br>
 <h3 style="color: #0e083b"><b>User Study</b></h3><br>
 <div style="text-align: justify;color: #083e40">The table shows the Likert score of 1 (Extremely dissatisfied) to 5 (Extremely satisfied) given by the participants when specific events are included or excluded in the summary with user comments on the personalized summary. S0X-SY represents subject ‘X’ in scenario ‘Y’. It is observed that sometimes the user sees the excluded part in the personalized summary. This is because the interactive reward personalized the summary but at the same time distinctiveness-indicative reward that tries to maintain the global context. This can be handled by fine-tuning the weights of A and B discussed in interactive reward.</div>
-<p>&nbsp;</p>
-<div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="Interactive_user_feedback.png" alt="IMG"><center><small></small></center></div>
-<hr>
-<br><br>
+<br>
+ <iframe src="Interactive_user_feedback.pdf" width="100%" height="500px">
+ </iframe>
+
 <h3 style="color: #0e083b"><b>Related Publications</b></h3>
 <ul>
 <li>Anuj Rathore*, Pravin Nagar* , Chetan Arora, and C. V. Jawahar. "Generating 1 Minute Summaries of Day Long Egocentric Videos" ACMMM 2019.</li>
@@ -176,7 +176,6 @@
 </pre>
 </div>
 <hr>
-
 <div>
 <h3 style="color: #0e083b"><b>Code</b></h3>
 <p>The software implementation of this project can be found on <a href="https://github.com/Pravin74/interact_summ_code">GitHub repository</a>. The implementation is based on PyTorch library. Find the <a href="https://youtu.be/WnvKlp4bxTI">Demo</a></p>
@@ -192,7 +191,7 @@
 <div>
 <h3 style="color: #0e083b"><b>Dataset</b></h3>
 <div>
-<p>The Feature extraction process and feature loading from h5py files is explained in the <a href="#"> ReadMe. </a></p>
+<p>The Feature extraction process and feature loading from h5py files is explained in the <a href="ReadMe_dataset_preparation.pdf"> ReadMe. </a></p>
 </div>
 <div class="row">
 
