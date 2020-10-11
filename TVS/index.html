@@ -147,11 +147,11 @@ Temporal Segmentation of Daylong Egocentric Videos</u></strong></h3><br>
 <div style="text-align: justify;color: #083e40">The long and unconstrained nature of egocentric videos makes it imperative to use temporal segmentation as an important pre-processing step for many higher-level inference tasks. Activities of the wearer in an egocentric video typically span over hours and are often separated by slow, gradual changes. Furthermore, the change of camera viewpoint due to the wearer's head motion causes frequent and extreme, but, spurious scene changes. The continuous nature of boundaries makes it difficult to apply traditional Markov Random Field (MRF) pipelines relying on temporal discontinuity, whereas deep Long Short Term Memory (LSTM) networks gather context only upto a few hundred frames, rendering them ineffective for egocentric videos. In this paper, we present a novel unsupervised temporal segmentation technique especially suited for day-long egocentric videos. We formulate the problem as detecting concept drift in a time-varying, non i.i.d. sequence of frames.  Statistically bounded thresholds are calculated to detect concept drift between two temporally adjacent multivariate data segments with different underlying distributions while establishing guarantees on false positives. Since the derived threshold indicates confidence in the prediction, it can also be used to control the granularity of the output segmentation. Using our technique, we report significantly improved state of the art f-measure for daylong egocentric video datasets, as well as photostream datasets derived from them: HUJI~(73.01%, 59.44%), UTEgo~(58.41%, $60.61%) and Disney~(67.63%, 68.83%). </div>
 <p>&nbsp;</p>
 
-<h3 style="color: #0e083b"><b>Architecture</b></h3><br>
+<h3 style="color: #0e083b"><b>Methodology</b></h3><br>
 <div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black; width: 100%" src="Architecture.png" alt="IMG"><center><small></small></center></div>
 <br><br>
 <h3 style="color: #0e083b"><b>Visualization</b></h3><br>
-<div style="text-align: justify;color: #083e40">The figure Temporal segmentation of long egocentric videos: The figure shows a qualitative representation of closeness of boundaries predicted by the proposed approach, ADaptive WINdowing (ADWIN), Contextual Event Segmentation (CES) \cite{del2018predicting} to ground truth boundaries from specific portions of Huji (first row), UTEgo (second row), and Disney (third row) datasets. </div>
+<div style="text-align: justify;color: #083e40">The figure shows a qualitative representation of closeness of boundaries predicted by the proposed approach, ADaptive WINdowing (ADWIN), Contextual Event Segmentation (CES) \cite{del2018predicting} to ground truth boundaries from specific portions of Huji (first row), UTEgo (second row), and Disney (third row) datasets. </div>
 <br>
 <div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="visualization.png" alt="IMG"><center><small></small></center></div>
 <hr>
@@ -190,7 +190,7 @@ Temporal Segmentation of Daylong Egocentric Videos</u></strong></h3><br>
 
 <hr>
 <div>
-<h3 style="color: #0e083b"><b>Dataset</b></h3>
+<!-- <h3 style="color: #0e083b"><b>Dataset</b></h3>
 <div>
 <p>The Feature extraction process and feature loading from h5py files is explained in the <a href="ReadMe_dataset_preparation.pdf"> ReadMe. </a></p>
 </div>
@@ -234,7 +234,7 @@ Temporal Segmentation of Daylong Egocentric Videos</u></strong></h3><br>
 	</div>
 </div>
 
-</div>
+</div> -->
 
 
 </body></html>
