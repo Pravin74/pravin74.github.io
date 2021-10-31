@@ -141,49 +141,14 @@
 		          </div>
     </center>
     </div>
-<hr>
 <h3 style="color: #0e083b"><b>Abstract</b></h3>
 <div style="text-align: justify;color: #083e40">The popularity of egocentric cameras and their always-on nature has lead to the abundance of day-long first-person videos. The presence of extreme shake and highly redundant nature of these videos make them difficult to watch from beginning to end and requiring summarization tools for their efficient consumption. However, traditional summarization techniques developed for static surveillance videos, or highly curated sports videos and movies are, either, not suitable or simply do not scale for such hours long videos in the wild. On the other hand, specialized summarization techniques developed for egocentric videos limit their focus to important objects and people. In this paper, we present a novel unsupervised reinforcement learning framework to summarize egocentric videos both in terms of length as well as the content. The proposed framework facilitates to incorporate various types of prior preferences such as faces, places, or scene diversity as well as interactive user choice in terms of including or excluding the particular type of content. Our approach can also be adapted to generate summaries of various lengths making it possible to view even 1-minute summaries of one’s entire day. When using the facial saliency-based reward, we show that our approach generates summaries focusing on social interactions, similar to the current state-of-the-art (SOTA). Quantitative comparison on the benchmark Disney dataset shows that our method achieves significant improvement in Relaxed F-Score (RFS) ( 29.60 compared to 19.21 from SOTA) and BLEU score ( 11.55 vs. 10.64 from SOTA). Finally, we show that our technique can be applied for summarizing traditional, short, hand-held videos as well, where we improve the SOTA F-score on benchmark SumMe and TVSum datasets from 41.4 to 46.40 and 57.6 to 58.3 respectively.</div>
 <p>&nbsp;</p>
-
+<hr>
 <h3 style="color: #0e083b"><b>Architecture</b></h3><br>
 <div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black; width: 100%" src="Architecture.png" alt="IMG"><center><small></small></center></div>
 <br><br>
-<h3 style="color: #0e083b"><b>Visualization</b></h3><br>
-<div style="text-align: justify;color: #083e40">The figure demonstrates the visualization of the interactive summarization of the 'P01’ video sequence of the UTE dataset. Each bar represents 10 seconds of time interval. (a)-(e) shows different summaries when two events namely 'preparing food’ and 'driving’ are included/excluded in the summary. We can observe that (c) has more driving sub-shots compared to (b), whereas in (d) the bars in the driving sub-shots are reduced considerably. Similarly, for (e) we get peaks in the 'preparing food’ area whereas the bars in the driving area are reduced. The opposite is seen in the (d).</div>
-<br>
-<div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="visualization.png" alt="IMG"><center><small></small></center></div>
-<hr>
-<br>
-<h3 style="color: #0e083b"><b>User Study</b></h3><br>
-<div style="text-align: justify;color: #083e40">The table shows the Likert score of 1 (Extremely dissatisfied) to 5 (Extremely satisfied) given by the participants when specific events are included or excluded in the summary with user comments on the personalized summary. S0X-SY represents subject ‘X’ in scenario ‘Y’. It is observed that sometimes the user sees the excluded part in the personalized summary. This is because the interactive reward personalized the summary but at the same time distinctiveness-indicative reward that tries to maintain the global context. This can be handled by fine-tuning the weights of A and B discussed in interactive reward.</div>
-<br>
- <iframe src="Interactive_user_feedback.pdf" width="100%" height="500px">
- </iframe>
 
-<h3 style="color: #0e083b"><b>Related Publications</b></h3>
-<ul>
-<li>Anuj Rathore*, Pravin Nagar* , Chetan Arora, and C. V. Jawahar. "Generating 1 Minute Summaries of Day Long Egocentric Videos" ACMMM 2019.</li>
-</ul>
-<hr>
-<h3>Bibtex</h3>
-<p>If you use this work, please cite these works :</p>
-<div>
-
-<pre style="border-style: solid; border-width: 1px;"> @article{nagar2021generating,
-	title={Generating Personalized Summaries of Day Long Egocentric Videos},
-	author={Nagar, Pravin and Rathore, Anuj and Jawahar, CV and Arora, Chetan},
-	journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-	year={2021},
-	publisher={IEEE}}
-	<pre style="border-style: solid; border-width: 0px;"> @inproceedings{rathore2019generating,
-	  title={Generating 1 Minute Summaries of Day Long Egocentric Videos},
-	  author={Rathore, Anuj and Nagar, Pravin and Arora, Chetan and Jawahar, CV},
-	  booktitle={Proceedings of the 27th ACM International Conference on Multimedia},
-	  pages={2305--2313},
-	  year={2019}}
-	</pre>
-</div>
 <hr>
 <div>
 <h3 style="color: #0e083b"><b>Code</b></h3>
@@ -195,6 +160,40 @@
 <h3 style="color: #0e083b"><b>Supplementary Material</b></h3>
 <p>The supplementary material can be found<a href="Interactive_summ_supp.pdf"> here </a></p>
 </div>
+
+<hr>
+<div>
+<h3 style="color: #0e083b"><b>Datasets</b></h3>
+<div>
+<p>The Feature extraction process and feature loading from h5py files is explained in the <a href="ReadMe_dataset_preparation.pdf"> ReadMe. </a></p>
+</div>
+<div class="row">
+
+	<div class="col-xs-3">
+		<li style="padding-left: 50%"><a href="http://ai.stanford.edu/~alireza/Disney/">DISNEY: </a></p></li>
+		<li style="padding-left: 50%"><a href="http://vision.cs.utexas.edu/projects/egocentric_data/UT_Egocentric_Dataset.html">UTE: </a></p></li>
+		<li style="padding-left: 50%"><a href="http://www.vision.huji.ac.il/egoseg/videos/dataset.html">HUJI: </a></p></li>
+
+	</div>
+
+	<div class="col-xs-3">
+		<ul><a href="https://drive.google.com/drive/folders/1-Q-ur3TAfQi-WIfkAYn-dG3TUpdnR_K6">CNN Features</a></p></ul>
+		<ul><a href="#">CNN Features</a></p></ul>
+		<ul><a href="#">CNN Features</a></p></ul>
+</div>
+<div class="col-xs-3">
+	<ul><a href="https://drive.google.com/drive/folders/1-Q-ur3TAfQi-WIfkAYn-dG3TUpdnR_K6">C3D Features</a></p></ul>
+	<ul><a href="https://drive.google.com/drive/folders/1FswxUAgKBhx02pUNv610-kG7lbE-PJxu">C3D Features</a></p></ul>
+	<ul><a href="https://drive.google.com/drive/folders/199UmwjLnqTGLSo7QgaPsaYFAAxieqSLY">C3D Features</a></p></ul>
+	</div>
+<div class="col-xs-3">
+	<ul><a href="http://ai.stanford.edu/~syyeung/videoset.html">Annotations</a></p></ul>
+	<ul><a href="http://ai.stanford.edu/~syyeung/videoset.html">Annotations</a></p></ul>
+	<ul>NA</p></ul>
+</div>
+</div>
+</div>
+
 
 <!-- Inserting tabel  -->
 <hr>
@@ -313,41 +312,44 @@ th, td {
 <iframe width="480" height="360" src="https://www.youtube.com/embed/0h7PzMSb_Ak">link</iframe>
 </div>
 
-
-
 <hr>
+
+<h3 style="color: #0e083b"><b>More Visualization</b></h3><br>
+<div style="text-align: justify;color: #083e40">The figure demonstrates the visualization of the interactive summarization of the 'P01’ video sequence of the UTE dataset. Each bar represents 10 seconds of time interval. (a)-(e) shows different summaries when two events namely 'preparing food’ and 'driving’ are included/excluded in the summary. We can observe that (c) has more driving sub-shots compared to (b), whereas in (d) the bars in the driving sub-shots are reduced considerably. Similarly, for (e) we get peaks in the 'preparing food’ area whereas the bars in the driving area are reduced. The opposite is seen in the (d).</div>
+<br>
+<div><img style="display: block; margin-left: auto; margin-right: auto;border: solid 2px black;width: 100%" src="visualization.png" alt="IMG"><center><small></small></center></div>
+<hr>
+<br>
+<h3 style="color: #0e083b"><b>User Study</b></h3><br>
+<div style="text-align: justify;color: #083e40">The table shows the Likert score of 1 (Extremely dissatisfied) to 5 (Extremely satisfied) given by the participants when specific events are included or excluded in the summary with user comments on the personalized summary. S0X-SY represents subject ‘X’ in scenario ‘Y’. It is observed that sometimes the user sees the excluded part in the personalized summary. This is because the interactive reward personalized the summary but at the same time distinctiveness-indicative reward that tries to maintain the global context. This can be handled by fine-tuning the weights of A and B discussed in interactive reward.</div>
+<br>
+ <iframe src="Interactive_user_feedback.pdf" width="100%" height="500px">
+ </iframe>
+ <hr>
+
+<h3 style="color: #0e083b"><b>Related Publications</b></h3>
+<ul>
+<li>Anuj Rathore*, Pravin Nagar* , Chetan Arora, and C. V. Jawahar. "Generating 1 Minute Summaries of Day Long Egocentric Videos" ACMMM 2019.</li>
+</ul>
+<hr>
+<h3>Bibtex</h3>
+<p>If you use this work, please cite these works :</p>
 <div>
-<h3 style="color: #0e083b"><b>Datasets</b></h3>
-<div>
-<p>The Feature extraction process and feature loading from h5py files is explained in the <a href="ReadMe_dataset_preparation.pdf"> ReadMe. </a></p>
-</div>
-<div class="row">
 
-	<div class="col-xs-3">
-		<li style="padding-left: 50%"><a href="http://ai.stanford.edu/~alireza/Disney/">DISNEY: </a></p></li>
-		<li style="padding-left: 50%"><a href="http://vision.cs.utexas.edu/projects/egocentric_data/UT_Egocentric_Dataset.html">UTE: </a></p></li>
-		<li style="padding-left: 50%"><a href="http://www.vision.huji.ac.il/egoseg/videos/dataset.html">HUJI: </a></p></li>
-
-	</div>
-
-	<div class="col-xs-3">
-		<ul><a href="https://drive.google.com/drive/folders/1-Q-ur3TAfQi-WIfkAYn-dG3TUpdnR_K6">CNN Features</a></p></ul>
-		<ul><a href="#">CNN Features</a></p></ul>
-		<ul><a href="#">CNN Features</a></p></ul>
+<pre style="border-style: solid; border-width: 1px;"> @article{nagar2021generating,
+	title={Generating Personalized Summaries of Day Long Egocentric Videos},
+	author={Nagar, Pravin and Rathore, Anuj and Jawahar, CV and Arora, Chetan},
+	journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+	year={2021},
+	publisher={IEEE}}
+	<pre style="border-style: solid; border-width: 0px;"> @inproceedings{rathore2019generating,
+	  title={Generating 1 Minute Summaries of Day Long Egocentric Videos},
+	  author={Rathore, Anuj and Nagar, Pravin and Arora, Chetan and Jawahar, CV},
+	  booktitle={Proceedings of the 27th ACM International Conference on Multimedia},
+	  pages={2305--2313},
+	  year={2019}}
+	</pre>
 </div>
-<div class="col-xs-3">
-	<ul><a href="https://drive.google.com/drive/folders/1-Q-ur3TAfQi-WIfkAYn-dG3TUpdnR_K6">C3D Features</a></p></ul>
-	<ul><a href="https://drive.google.com/drive/folders/1FswxUAgKBhx02pUNv610-kG7lbE-PJxu">C3D Features</a></p></ul>
-	<ul><a href="https://drive.google.com/drive/folders/199UmwjLnqTGLSo7QgaPsaYFAAxieqSLY">C3D Features</a></p></ul>
-	</div>
-<div class="col-xs-3">
-	<ul><a href="http://ai.stanford.edu/~syyeung/videoset.html">Annotations</a></p></ul>
-	<ul><a href="http://ai.stanford.edu/~syyeung/videoset.html">Annotations</a></p></ul>
-	<ul>NA</p></ul>
-</div>
-</div>
-</div>
-
 <hr>
 
 <hr>
